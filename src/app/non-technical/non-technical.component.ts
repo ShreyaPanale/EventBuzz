@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-non-technical',
+  selector: 'non-technical',
   template: `
     <p>
       non-technical works!

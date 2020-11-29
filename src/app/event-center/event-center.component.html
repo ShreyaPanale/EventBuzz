@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-sm-9">
+      <event-detail *ngif="selectedEvent" [clubEvent]="selectedEvent"></event-detail>
+    </div>  
+    <div class="col-sm-1">
+      <!--property data binding-->
+      <event-list (SelectEvent)="onSelectEvent(clubEvents)" [clubEvents]=clubEvents></event-list>
+    </div>
+  </div>
