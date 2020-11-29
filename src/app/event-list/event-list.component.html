@@ -1,3 +1,9 @@
-<ul class="nav nav-pills nav-sacked">
-    <li (click)="onSelect(clubEvent)" *ngFor="let clubEvent of clubEvents"><a>{{clubEvent.clubName}}</a></li>
+<br>
+<ul class="nav nav-pills nav-stacked" *ngFor="let Event of Events">
+    <li (click)="onSelect(Event)"><a>{{Event.eventName}}</a>
+        <a>{{Event.eventName}}</a>
+        <a>{{Event.clubName}}</a>
+        <a>{{Event.description}}</a>
+        <a>{{Event.startDate}}</a>
+        <a>{{Event.endDate}}</a></li>
 </ul>

@@ -11,4 +11,4 @@ const eventSchema = new Schema({
     formLink : String
 });
 
-module.exports = mongoose.model('clubEvent',eventSchema, 'eventsCollection')
+module.exports = mongoose.model('Event',eventSchema, 'eventsCollection')
