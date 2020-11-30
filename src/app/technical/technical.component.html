@@ -1,52 +1,67 @@
-<h2>UPCOMING TECHNICAL EVENTSsafa!!!</h2>
-<div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
-        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6,7]">
-          <mat-card class="mat-elevation-z4" >
-            <mat-card-header>
-              <mat-card-title>Event {{num}} - DSC</mat-card-title>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button [style.background-color]="toggle ? 'lightgrey' : 'blue'" (click)="enableDisableRule()">
-                    {{status}}
-                  </button>
-              <button mat-button style="background-color:lightgrey">SHARE</button>
-              <button style="background-color:red;color:white" onclick="window.open('https://forms.gle/7D1wYHrrmgvjGePx7', '_blank');">REGISTER NOW</button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-    </div>
+<head>
+  <style>
+      .heading{
+        margin-top: 6%;
+        margin-bottom: 2%;
+      }
+  </style>
+</head>
 
-    <div class="card-deck">
-      <div class="card">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-    </div>
+<div class='heading'>
+  <h2 style="color: rgb(3, 81, 121)">UPCOMING TECHNICAL EVENTS</h2>
+</div>
+
+<div class="card mb-3" style="box-shadow: 4px 4px 4px rgba(146, 145, 145, 0.329);">
+  <img class="card-img-top" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Card image cap"
+    style="height: auto;width: 300px;align-self: center; margin-top: 2%;">
+  <div class="card-body">
+    <h5 class="card-title">HacktoberFest 2020</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+      This content is a little bit longer.</p>
+    <mat-card-actions>
+      <button style="background-color: rgb(3, 81, 121);color:white"
+        onclick="window.open('https://forms.gle/7D1wYHrrmgvjGePx7', '_blank');">REGISTER NOW</button>
+    </mat-card-actions>
+  </div>
+</div>
+
+<div class="card mb-3" style="box-shadow: 4px 4px 4px rgba(146, 145, 145, 0.329);">
+  <img class="card-img-top" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Card image cap"
+    style="height: auto;width: 300px;align-self: center; margin-top: 2%;">
+  <div class="card-body">
+    <h5 class="card-title">InGenius 2020</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+      This content is a little bit longer.</p>
+    <mat-card-actions>
+      <button style="background-color: rgb(3, 81, 121);color:white"
+        onclick="window.open('https://forms.gle/7D1wYHrrmgvjGePx7', '_blank');">REGISTER NOW</button>
+    </mat-card-actions>
+  </div>
+</div>
+
+<!-- Make this display as a grid there with 3 columns instead of flex to maintain symmetry since there are 6 cards, 
+  make it 3 at the btop and 3 at the bottom -->
+<div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6]">
+    <mat-card class="mat-elevation-z4">
+      <mat-card-header>
+        <mat-card-title>Event {{num}} - DSC</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button style="font-size: 10px;" mat-button [style.background-color]="toggle ? 'lightgrey' : 'rgb(3, 81, 121)'" (click)="enableDisableRule()">
+          {{status}}
+        </button>
+        <button style="background-color:rgb(3, 81, 121);color:white; font-size: 10px; margin-left: 8%"
+          onclick="window.open('https://forms.gle/7D1wYHrrmgvjGePx7', '_blank');">REGISTER NOW</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
