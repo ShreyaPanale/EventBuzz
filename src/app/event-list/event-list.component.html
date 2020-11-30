@@ -1,3 +1,62 @@
+<head>
+    <style>
+        .eventList {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            width: 100%;
+            margin: auto;
+        }
+
+        .eventCard {
+            border-bottom: solid 4px rgb(3, 81, 121);
+            margin: 6% 4%;
+            padding: 2%;
+            padding-bottom: 6%;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        .eventName {
+            font-size: 32px;
+        }
+
+        .clubName {
+            font-size: 32px;
+            margin-left: 8%;
+        }
+
+        .dates {
+            font-size: 10px;
+        }
+        .endDate{
+            margin-right: 8%;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<br>
+
+<div class='eventList'>
+    <ul class="nav nav-pills nav-stacked events" *ngFor="let Event of Events">
+        <li (click)="onSelect(Event)" class="eventCard">
+            <p class='clubEvent'>
+                <a class="eventName"><span style="font-size: 16px;">Event: </span>{{Event.eventName}}</a>
+                <a class="clubName"><span style="font-size: 16px;">By: </span>{{Event.clubName}}</a>
+            </p>
+            <a class="description">{{Event.description}}</a>
+            <p class="dates">
+                <a class="startDate">Starts On: {{Event.startDate}}</a>
+                <a class="endDate">Ends On: {{Event.endDate}}</a>
+            </p>
+
+        </li>
+    </ul>
+</div>
+=======
 <br>HI
 <ul class="nav nav-pills nav-stacked" *ngFor="let Event of Events">
     <li><a>{{Event.eventName}}</a>
@@ -23,3 +82,4 @@
             </div>
         </div>
 </ul>
+
