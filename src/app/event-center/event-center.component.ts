@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from './../event'
+import { EventService } from './../event.service'
+
 @Component({
   selector: 'event-center',
   templateUrl: './event-center.component.html',
-  styleUrls: ['./event-center.component.css']
+  styleUrls: ['./event-center.component.css'],
+  providers:[EventService]
 })
 export class EventCenterComponent implements OnInit {
 
-  Events : Event[] = [
-    {"_id":"1","eventName":"A","clubName":"A1", "description":"desc1", "startDate":new Date("2019-01-16"), "endDate":new Date("2019-01-16"), "formLink":"xyz"},
-    {"_id":"2","eventName":"B","clubName":"B1", "description":"desc2", "startDate":new Date("2019-01-16"), "endDate":new Date("2019-01-16"), "formLink":"xyz"},
-    {"_id":"3","eventName":"C","clubName":"C1", "description":"desc3", "startDate":new Date("2019-01-16"), "endDate":new Date("2019-01-16"), "formLink":"xyz"},
-    {"_id":"4","eventName":"D","clubName":"D1", "description":"desc4", "startDate":new Date("2019-01-16"), "endDate":new Date("2019-01-16"), "formLink":"xyz"}
-  ];
+  public Events : Event[];
 
   selectedEvent:Event;
-  constructor() { }
+  
+  constructor(private _EventService:EventService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this._EventService.getEvents()
+    .subscribe(data => {console.log(data)});
   }
 
   onSelectEvent(event:any){

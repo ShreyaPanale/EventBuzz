@@ -7,7 +7,7 @@ import { Event } from '../event';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
-  @Input() Events : Array<Event>;
+  @Input() Events : [];
   @Output() public SelectEvent = new EventEmitter<Event>();
   constructor() { }
 
@@ -15,7 +15,6 @@ export class EventListComponent implements OnInit {
   }
 
   onSelectEvent(eve:Event){
-    console.log("HERE");
     this.SelectEvent.emit(eve);
   }
 }

@@ -1,9 +1,25 @@
-<br>
+<br>HI
 <ul class="nav nav-pills nav-stacked" *ngFor="let Event of Events">
-    <li (click)="onSelect(Event)"><a>{{Event.eventName}}</a>
+    <li><a>{{Event.eventName}}</a>
         <a>{{Event.eventName}}</a>
         <a>{{Event.clubName}}</a>
         <a>{{Event.description}}</a>
         <a>{{Event.startDate}}</a>
         <a>{{Event.endDate}}</a></li>
+</ul>
+
+<br>
+<ul class="nav nav-pills nav-stacked" *ngFor="let Event of Events">
+        <div class="card mb-3">
+            <img class="card-img-top" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Card image cap" style="height: 250px;width: 550px;align-self: center;">
+            <div class="card-body">
+              <h3 class="card-title">{{Event.eventName}} - {{Event.clubName}}</h3>
+              <p class="card-text">{{Event.description}}</p>
+              <a>{{Event.startDate}}</a>
+              <a>{{Event.endDate}}</a>
+              <mat-card-actions>
+                <button style="background-color:red;color:white" onclick="window.open('https://forms.gle/7D1wYHrrmgvjGePx7', '_blank');">REGISTER NOW</button>
+              </mat-card-actions>
+            </div>
+        </div>
 </ul>
