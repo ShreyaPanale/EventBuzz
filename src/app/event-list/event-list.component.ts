@@ -1,21 +1,20 @@
 import { Component, Input, OnInit , EventEmitter, Output} from '@angular/core';
-import { clubEvent } from '../club-event';
+import { Event } from '../event';
 
 @Component({
   selector: 'event-list',
   templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.css'],
-  outputs:['SelectEvent']
+  styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
-  @Input() clubEvents : clubEvent;
-  @Output() SelectEvent = new EventEmitter<clubEvent>();
+  @Input() Events : [];
+  @Output() public SelectEvent = new EventEmitter<Event>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onSelectEvent(eve:clubEvent){
+  onSelectEvent(eve:Event){
     this.SelectEvent.emit(eve);
   }
 }

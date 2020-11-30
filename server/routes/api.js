@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const clubEvent = require('../models/clubEvent');
+const Event = require('../models/Event');
 
 const db = "mongodb+srv://admin:admin@eventscluster.mykis.mongodb.net/eventsDB?retryWrites=true&w=majority"
 mongoose.Promise = global.Promise;
@@ -14,9 +14,9 @@ mongoose.connect(db, function(err){
 //GET all
 //first arg -> path
 //second arg -> req handling fn
-router.get('/clubEvents',function(req,res){
+router.get('/Events',function(req,res){
     console.log('GET req for all events');
-    clubEvent.find({})
+    Event.find({})
     .exec(function(err,events){
         if(err){
             console.log("Error retrieving events");
@@ -27,9 +27,9 @@ router.get('/clubEvents',function(req,res){
     });
 });
 //Using ID
-router.get('/clubEvents/:id',function(req,res){
+router.get('/Events/:id',function(req,res){
     console.log('GET req for single event');
-    clubEvent.findById(req.params.id)
+    Event.findById(req.params.id)
     .exec(function(err,event){
         if(err){
             console.log("Error retrieving events");
@@ -41,16 +41,16 @@ router.get('/clubEvents/:id',function(req,res){
 });
 
 //POST method
-router.post('/clubEvent',function(req,res){
+router.post('/Event',function(req,res){
     console.log("Post an event");
-    var newclubEvent = new clubEvent();
-    newclubEvent.eventName = req.body.eventName;
-    newclubEvent.clubName = req.body.clubName;
-    newclubEvent.description = req.body.description;
-    newclubEvent.startDate = req.body.startDate;
-    newclubEvent.endDate = req.body.endDate;
-    newclubEvent.formLink = req.body.formLink;
-    newclubEvent.save(function(err,insertedEvent){
+    var newEvent = new Event();
+    newEvent.eventName = req.body.eventName;
+    newEvent.clubName = req.body.clubName;
+    newEvent.description = req.body.description;
+    newEvent.startDate = req.body.startDate;
+    newEvent.endDate = req.body.endDate;
+    newEvent.formLink = req.body.formLink;
+    newEvent.save(function(err,insertedEvent){
         if(err){
             console.log("Error saving event");
         }
@@ -62,15 +62,15 @@ router.post('/clubEvent',function(req,res){
 });
 
 //UPDATE - PUT method
-router.put('/clubEvent/:id',function(req,res){
+router.put('/Event/:id',function(req,res){
     console.log("Update event");
     //findByIdAndUpdate
     //first arg -> id
     //second arg -> set of new/updated values for event
-    clubEvent.findByIdAndUpdate(req.params.id,
+    Event.findByIdAndUpdate(req.params.id,
     {
-        $set: {eventName : req.body.eventName,
-            clubName: req.body.clubName,
+        $set: {event : req.body.eventName,
+            clubName: req.body.Name,
             description : req.body.description,
             startDate : req.body.startDate,
             endDate : req.body.endDate,
@@ -79,26 +79,26 @@ router.put('/clubEvent/:id',function(req,res){
     {
         new: true
     },
-    function(err,updatedclubEvent){
+    function(err,updatedEvent){
         if(err){
             res.send("Error updating event");
         }
         else{
-            res.json(updatedclubEvent);
+            res.json(updatedEvent);
         }
     }
     );
 });
 
 //DELETE method
-router.delete('/clubEvent/:id',function(req,res){
+router.delete('/Event/:id',function(req,res){
     console.log("Deleting an event");
-    clubEvent.findByIdAndDelete(req.params.id, function(err,deletedclubEvent){
+    Event.findByIdAndDelete(req.params.id, function(err,deletedEvent){
         if(err){
             res.send("Error deleting Event");
         }
         else{
-            res.json(deletedclubEvent);
+            res.json(deletedEvent);
         }
     });
 });

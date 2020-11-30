@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HOMEComponent implements OnInit {
 
+  title: string = "Welcome to EventBuzz";
+
   constructor() { }
 
   ngOnInit(): void {

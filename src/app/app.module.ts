@@ -11,8 +11,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { EventListComponent } from './event-list/event-list.component';
-import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventCenterComponent } from './event-center/event-center.component';
+import { HttpClientModule } from '@angular/common/http';
+import { EventService } from './event.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,6 @@ import { EventCenterComponent } from './event-center/event-center.component';
     TECHNICALComponent,
     NONTECHNICALComponent,
     EventListComponent,
-    EventDetailComponent,
     EventCenterComponent
   ],
   imports: [
@@ -31,9 +31,10 @@ import { EventCenterComponent } from './event-center/event-center.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatGridListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
