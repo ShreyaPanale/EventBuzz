@@ -70,7 +70,7 @@ router.put('/Event/:id',function(req,res){
     Event.findByIdAndUpdate(req.params.id,
     {
         $set: {event : req.body.eventName,
-            clubName: req.body.Name,
+            clubName: req.body.clubName,
             description : req.body.description,
             startDate : req.body.startDate,
             endDate : req.body.endDate,
