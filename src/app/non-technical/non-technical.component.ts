@@ -2,13 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'non-technical',
-  template: `
-    <p>
-      non-technical works!
-    </p>
-  `,
-  styles: [
-  ]
+  templateUrl: './non-technical.component.html',
+  styleUrls:['./non-technical.component.css']
 })
 export class NONTECHNICALComponent implements OnInit {
 
@@ -16,5 +11,11 @@ export class NONTECHNICALComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  toggle = true;
+  status = 'Like'; 
 
+  enableDisableRule(job) {
+    this.toggle = !this.toggle;
+    this.status = this.toggle ? 'Like' : 'Liked';
+  }
 }
